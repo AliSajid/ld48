@@ -148,4 +148,15 @@ A university. Teeming with students, and teachers.
 ### Time Lords World
 Gallifrey, Of course.
 
-### 
+### Distributed Computing World
+Placeholder.
+
+### Mars Terraforming World
+A colony on Mars.
+
+### Context-Free Languages World
+LLG Headquarters. LLG being an advanced Hybrid Intellignece, with
+very high level of influence.
+
+### Biological Evolution World
+The world of Spore!
