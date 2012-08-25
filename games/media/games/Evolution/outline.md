@@ -112,11 +112,31 @@ The Jupiter Brains are fighting each other. Help them resolve their disputes, pe
 * One light turns on in the Rift Room Exit.
 * You gain one Evil or Good Point.
 
-### Metphysics Puzzle
+### Metaphysics Puzzle
+The world around you is degrading. Enhance either Chaos / Ignorance or Order / Knowledge
 
 #### Goal
-
+* Help the Knowledge win againct Ignorace.
+*OR*
+* Help Ignorance win against Knowledge
 #### Path
+* Common Path
+  * Examine Surroundings.
+  * Point at "Question"
+  * Answer the three questions.
+   * Do Causes always Follow Effects?
+   * Is there Free will?
+   * Who are you?
+  * Take either the Good or Evil Paths.
+  * Move into the light.
+* Good Path
+  * Most of the times, Yes.
+  * We cannot tell.
+  * I am the Traveller
+* Evil Path
+  * What is this?
+  * I don't even....
+  * Screw You, I'm out of here.
 
 #### Achievement
 * One light turns on in the Rift Room Exit.
@@ -252,6 +272,8 @@ The martian colony is having trouble with their terraforming engine. The combine
   * Join the meeting.
   * Talk to both representatives.
   * Go to the control room.
+  * Take one of the Good or Evil Paths
+  * Walk into the light.
 * Good Path
   * Examine the console.
   * Look at the code.
@@ -261,7 +283,7 @@ The martian colony is having trouble with their terraforming engine. The combine
   * Shoot the console.
 
 #### Achievement
-* One light turns on in the Rift Room Exit
+* One light turns on in the Rift Room Exit.
 * You gain an Evil or Good Point.
 
 ### Context Free Languages Puzzle
@@ -271,16 +293,36 @@ The martian colony is having trouble with their terraforming engine. The combine
 #### Path
 
 #### Achievement
-* One light turns on in the Rift Room Exit
+* One light turns on in the Rift Room Exit.
+* You gain an Evil or Good Point.
 
 ### Biological Evolution Puzzle
+You play the rules of nature. Let a species evolve.
 
 #### Goal
+* Evolve the Predator into a Better Predator.
+*OR*
+* Evolve the Prey into a better Evader.
 
 #### Path
-
+* Common Path
+  * View the vista.
+  * View the prey.
+  * View the Predator.
+  * Take one of the Good or Evil Paths
+  * Walk into the light.
+* Good Path
+  * Kill the slow Predators
+  * Kill the fast Prey
+  * Kill the Predators with High hunger thresholds
+* Evil Path
+  * Kill the slow Prey
+  * Kill the fast Predators
+  * Kill the Predators with Low Hunger Thresholds
+  
 #### Achievement
 * One light turns on in the Rift Room Exit
+* You gain an Evil or Good Point.
 
 ### Final Puzzle: Ramsey Theory
 
@@ -300,15 +342,15 @@ Evolve yourself from a basic Human Being to a Transdimensional Planeswalker.
 #### Path
 
 * x1 from Artificial General Intelligence Puzzle
-* x2 Jupiter Brains Puzzle
-* x3 Metaphysics Puzzle
-* x4 Nanotechnology Puzzle
-* x5 String Theory Puzzle
-* x6 Time lords Puzzle
-* x7 Distributed computing Puzzle
-* x8 Mars Terraforming Puzzle
-* x9 Context-Free languages Puzzle
-* x10 Biological Evolution Puzzle
+* x2 from Jupiter Brains Puzzle
+* x3 from Metaphysics Puzzle
+* x4 from Nanotechnology Puzzle
+* x5 from String Theory Puzzle
+* x6 from Time lords Puzzle
+* x7 from Distributed computing Puzzle
+* x8 from Mars Terraforming Puzzle
+* x9 from Context-Free languages Puzzle
+* x10 from Biological Evolution Puzzle
 * Final Answer from The Architect.
 
 #### Achievement
