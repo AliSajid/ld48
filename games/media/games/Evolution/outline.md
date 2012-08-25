@@ -164,19 +164,67 @@ A grad student has discovered incontrovertible evidence that will change the fut
 * Help the Professor discredit the student.
 
 #### Path
-
+* Common Path
+  * Examine the hallway.
+  * Look at the Nervous student.
+  * Talk to Nervous Student.
+  * Take Thesis copy.
+  * Talk to Professor.
+  * Take one of the Good or Bad Paths.
+  * Move into the light
+* Good Path
+  * Pressure the Professor.
+  * Wait.
+  * Note down the password.
+  * Go outside.
+  * Wait for the professor to leave.
+  * Go inside.
+  * Use the computer to publish the thesis.
+  * Tell the student.
+* Evil Path
+  * Agree with the professor.
+  * Give him the thesis disk.
+  * Let him alter it heavily.
+  * Go out and tell the student the professor approved.
+  * Let him publish it from his own Computer.
+  
 #### Achievement
 * One light turns on in the Rift Room Exit.
 * You gain an Evil or Good Point.
 
 ### Time Lords Puzzle
+The rift you opened is one of many on Gallifrey. And the rifts are sucking away the Time Vortex energy. Stop the other rifts to make sure that time lords evolve, or make more rifts so that the time vortex collapses on itself.
 
 #### Goal
+* Use the Rift Destroyer to Destroy the rifts already present, and let Time Lords Evolve.
+*OR*
+* Overload the Rift Destroyer and focus it into the Time Vortex to make it collapse.
 
 #### Path
+* Common Path
+  * Walk out of the rift.
+  * Walk into the rift in front of you.
+  * Walk back out of it.
+  * Talk to the man standing near.
+  * Inquire about the Time Vortex.
+  * Go to the Control Room.
+  * Examine the Rift Generator and the Rift Destroyer.
+  * Take one of the Good or Evil Paths
+  * Walk into the light.
+* Good Path
+  * Try to use the Rift Destroyer.
+  * Search the room for batteries.
+  * Put the batteries in.
+  * Use the rift destroyer again.
+* Evil Path
+  * Try to use the Rift Destroyer.
+  * Search the room for heavy powercells.
+  * Focus onto the Time Vortex.
+  * Fire the Rift Destroyer.
 
 #### Achievement
 * One light turns on in the Rift Room Exit
+* You gain an Evil or Good Point.
 
 ### Distributed Computing Puzzle
 
@@ -196,6 +244,21 @@ The martian colony is having trouble with their terraforming engine. The combine
 * Damage it further, so that the people have no choice but to go back to earth.
 
 #### Path
+* Common Path
+  * Examine the room.
+  * Push the Panic Button.
+  * Talk to the representative.
+  * Go to the next room.
+  * Join the meeting.
+  * Talk to both representatives.
+  * Go to the control room.
+* Good Path
+  * Examine the console.
+  * Look at the code.
+  * Solve the anagram.
+  * Launch the Repair probe.
+* Evil Path
+  * Shoot the console.
 
 #### Achievement
 * One light turns on in the Rift Room Exit
