@@ -118,7 +118,8 @@ The world around you is degrading. Enhance either Chaos / Ignorance or Order / K
 #### Goal
 * Help the Knowledge win againct Ignorace.
 *OR*
-* Help Ignorance win against Knowledge
+* Help Ignorance win against Knowledge.
+
 #### Path
 * Common Path
   * Examine Surroundings.
