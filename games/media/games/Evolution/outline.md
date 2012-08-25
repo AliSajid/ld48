@@ -79,7 +79,7 @@ There is a Weak AI that wants to undersstand more about the Human Emotions. The 
 * You gain one Evil or Good Point.
 
 ### Jupiter Brains Puzzle
-The Jupiter Brains are fighting each other. Help them resolve their disputes peacefully.
+The Jupiter Brains are fighting each other. Help them resolve their disputes, peacefully or otherwise.
 
 #### Goal
 * Side with Warrior Jupiter Brain and turn the Universe into a battleground.
@@ -87,6 +87,26 @@ The Jupiter Brains are fighting each other. Help them resolve their disputes pea
 * Side with the Philosopher Jupiter Brain and help it reshape the universe for the good of organic species.
 
 #### Path
+* Common Path
+  * Look at the sun.
+  * Examine the planets.
+  * Pick up the nearby satellite.
+  * Listen for the transmissions from the Philosopher Jupiter Brain.
+  * Stop the invasion.
+  * Talk to Warrior Jupiter Brain.
+  * Take either the Good or Evil Paths.
+  * Move into the light.
+* Good Path
+  * Ask the Philospher Jupiter Brain how you can help it.
+  * Use the satellites to focus on Warrior Jupiter Brain.
+  * Move the Sun Closer to the Warrior Jupiter Brain.
+  * Watch Warrior Jupiter Brain evaporate.
+* Evil Path
+  * Ask the Warrior Jupiter Brain how you can help it.
+  * Use the satellites to focus out of Warrior Jupiter Brain.
+  * Move the Sun Closer to the Warrior Jupiter Brain.
+  * Launch WMDs from the closer satellite onto Philosopher Jupiter Brain.
+  * Watch Philosopher Jupiter Brain get destroyed.
 
 #### Achievement
 * One light turns on in the Rift Room Exit.
@@ -110,6 +130,26 @@ The Nanobots are being controlled by a Malicious AI. Help them Break Free, or Ha
 * Help the nanobots break free of the control of the Malicious AI.
 
 #### Path
+* Common Path
+  * Examine the factory.
+  * Go to the main control room.
+  * Talk to the Controller there.
+  * Move to the Power room.
+  * Try to shut off power.
+  * Talk to the Robot hiding there.
+  * Go back to the Control room.
+  * Use the containment switch to trick the AI with the nanosuit into activity.
+  * Talk to the AI.
+  * Take one of the Good or Bad Paths.
+  * Move into the light.
+* Good Path
+  * Use the Battery to overload the AI stack.
+  * Use the console while the AI reboots.
+  * Delete the AI's code.
+* Evil Path
+  * Go back to the power room.
+  * Use the Battery to overload the robot.
+  * Shut off power to the factory.
 
 #### Achievement
 * One light turns on in the Rift Room Exit.
@@ -229,7 +269,7 @@ A solar system. With hundreds of planets. The player itself is a planet.
 The world is nothing. Just whiteness, and words surrounding you.
 
 ### Nanotechnology World
-Placeholder.
+A factory that is empty, but has a near infinite supply of war bots. Some warbots are fighting other warbots.
 
 ### String Theory World
 A university. Teeming with students, and teachers.
