@@ -109,9 +109,7 @@ undum.game.situations = {
         	<li><a href='agi-start'>Artificial General Intelligence</a></li>\
         	<li><a href='metaphysics-start'>Metaphysics</a></li>\
         	<li><a href='nanotechnology-start'>Nanotechnology</a></li>\
-        	<li><a href='time-lords-start'>Time Lords</a></li>\
         	<li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
-        	<li><a href='biological-evolution-start'>Biological Evolution</a></li>\
         </ul>"
     ),
     
@@ -179,16 +177,63 @@ undum.game.situations = {
     
     'jupiter-brains-start': new undum.SimpleSituation(
         "<h1>Jupiter Brains</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>As soon as you went through the doorway, you felt something different happen to \
+        you. You feel huge. Really huge. Absurdly huge. Planet-sized huge. All around you, \
+        you see whole solar systems. You see two planets that stand out, being much much larger \
+        that any other planet in sight.</p>\
+        <p class='transient'><a href='./investigation'> Maybe you should investigate</a></p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
                     "<p>You are in the realm of Jupiter Brains.</p>"
                 );
+            },
+            
+            actions: {
+            	"investigate": "<p>You move closer to the planets. They start rapidly changing color. \
+            					As if trying to communicate with you. You move even more closer and see that \
+            					one planet is red, and the other is white. And tiny voices are coming from them.\
+            					They are, in fact, not planets, but planet-sized computers.</p>\
+            					<p>You listen to the White Jupiter Brain:\
+            					<blockquote>\"The Warriors are primitive in nature. they will only spread Chaos \
+            					throughout the world. They should be removed.\"</blockquote></p>\
+            					<p>When you move towards the Red Jupiter Brain, you hear something similar:\
+            					<blockquote>\"The Philosophers will sit back and argue while the world around them crumbles. \
+            					A show of force shall bring them to their knees and inform them of the necessity of power\".\
+            					</blockquote></p>\
+            					<p> It appears that the two jupiter Brains belong to two different factions, each bent on destroying\
+            					the other. And just like that, the whisper comes again. <blockquote> \" You must help One of them reach \
+            					victory.\" </blockquote> </p>\
+            					<p> The destiny of a realm is again in your hand. Who would you grant the sweet gift of victory?</p>\
+            					<ul class='options'>\
+            						<li><a href='./philosophers'>Let reason win. Help the philosophers!</a></li>\
+            						<li><a href='./warriors'>Let furor win. Help the warriors!</a></li>\
+            					</ul>",
+            	'philosophers': function(character, system, action) {
+                    system.write("<p>You decide to overpower your primal Instincts, and destroy the Warrior Jupiter Brain</p>\
+                    <p>You gain the <strong>ExaExabit memory storage.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='time-lords-start'>Time Lords</a></li>\
+                    <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
+                    </ul>");
+                    system.setQuality("jupiter-brain-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'warriors': function(character, system, action) {
+                    system.write("<p>You decide that the Primal Urges are the reason of evolution and progress and destroy the Philosopher Jupiter Brain.</p>\
+                    <p>You gain the <strong>ExaExabit memory storage.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='time-lords-start'>Time Lords</a></li>\
+                    <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
+                    </ul>");
+                    system.setQuality("jupiter-brain-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+            					
+            					
             }
         }
     ),
@@ -437,17 +482,41 @@ undum.game.situations = {
     
     'distributed-computing-start': new undum.SimpleSituation(
         "<h1>Distributed Computing</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>You have stumbled into a dark room. It appears that this universe is still in the process of being born.\
+        No matter. You still get to use this area to see if you would have been <a href='./good'>Good</a> or <a href='./evil'>Evil</a>\
+        Choose your path, and enjoy your free Mutation.</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
                     "<p>This seems to be a grid computer of some sort. You are <strong><em>inside</em></strong> a grid computer.</p>"
                 );
-            }
+            },
+            
+            actions: {
+            'good': function(character, system, action) {
+                    system.write("\
+                    <p>You gain the <strong>MegaQubit Processing speed for yourself.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='time-lords-start'>Time Lords</a></li>\
+                    <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
+                    </ul>");
+                    system.setQuality("distributed-computing-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'evil': function(character, system, action) {
+                    system.write("\
+                    <p>You gain the <strong>MegaQubit Processing speed for yourself.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='time-lords-start'>Time Lords</a></li>\
+                    <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
+                    </ul>");
+                    system.setQuality("jupiter-brain-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+             }
         }
     ),
 };
