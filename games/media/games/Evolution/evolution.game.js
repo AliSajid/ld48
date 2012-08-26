@@ -21,16 +21,17 @@ undum.game.situations = {
         "<h1>The Bedroom, or So It Begins....</h1>\
         <p>It is a dark and stormy knight. Wait a minute, that's not right. Well, it is, indeed a dark night, and you are lying in your bedroom, thinking about tomorrow. Tomorrow is your Final, you see? And if you fail it, then it is Goodbye, Engineering, and Hello, Burger Flipping. You ponder over your life. It seems too mundane. Too simple for your comfort. You are lost in your thoughts when you hear a small crash in the lounge outside. It is <a = href='./check-time'>Quite Late</a></p>\
         <p>Maybe you should <a href='lounge'> Investigate the noise.</a></p>"
-        
+     {   
 		actions: {
                 'check-time': "<p>You look at your watch. Damn it. It's 4 am already?</p>"
 		}
+	 }
     ),
     
     lounge: new undum.SimpleSituation(
         "<p>You Decide to get up and check where this noise is coming from. The lounge is neat and tidy. You see nothing that might have crashed. Before you you go back to your room, a small humming noise starts coming from your <a href='dining-room'>dining room.</a></p>\
         \
-        <p class='transient'> You should definitely investigate the <a href= 'dining-room'>dining room.</a> Who knows what might have broken into your home.</p>",
+        <p class='transient'> You should definitely investigate the <a href='dining-room'>dining room.</a> Who knows what might have broken into your home.</p>",
     ),
     
     dining-room: new undum.SimpleSituation(
