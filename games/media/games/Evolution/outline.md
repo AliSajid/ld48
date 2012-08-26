@@ -349,7 +349,7 @@ Evolve yourself from a basic Human Being to a Transdimensional Planeswalker.
 * x5 from String Theory Puzzle (4)
 * x6 from Time lords Puzzle (3)*
 * x7 from Distributed computing Puzzle (2)*
-* x8 from Mars Terraforming Puzzle (4)
+* x8 from Mars Terraforming Puzzle (4)*
 * x9 from Context-Free languages Puzzle (5)
 * x10 from Biological Evolution Puzzle (3)*
 * Final Answer from The Architect.

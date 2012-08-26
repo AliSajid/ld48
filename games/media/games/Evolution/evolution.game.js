@@ -108,8 +108,6 @@ undum.game.situations = {
         <ul class='options'>\
         	<li><a href='agi-start'>Artificial General Intelligence</a></li>\
         	<li><a href='metaphysics-start'>Metaphysics</a></li>\
-        	<li><a href='nanotechnology-start'>Nanotechnology</a></li>\
-        	<li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
         </ul>"
     ),
     
@@ -384,33 +382,96 @@ undum.game.situations = {
     
     'mars-terraforming-start': new undum.SimpleSituation(
         "<h1>Mars</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>You find yourself on Mars. The Red Planet has finally been conquered by the human race.\
+         The Voice calls out again: \
+         <blockquote>\"Welcome to Mars. Here, the <a href='./martian-settlement'>martian settlement</a> is in dire\
+         trouble. Their terraforming device has broken down and without it, they are stuck in the martian settlement.\
+         That is, until they starve. Or worse, return to Earth. Make your choice, and choose Wisely.\"</blockquote></p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
-                    "<p>This is a Mars Colony, and it sure looks comfortable.</p>"
+                    "<p>The Martian settlement is quite cramped.</p>"
                 );
+            },
+            
+            actions: {
+            	"martian-settlement": "<p>You stumble around the settlement, until you hit a meeting room. The meeting \
+            							looks like it's in full swing. An orderly at the door motions you in.\
+            							<a href='./meeting'>Attending the meeting might be a good idea.</a></p>",
+                
+                "meeting": "<p>You go inside the meeting room. \"..And I'm tellingyou taht we'll be wasting time\
+                			 in fixing the device. We have almost run out of supplies and fixing the device will not help.\"\
+                			 remarks one scientist angrily. \n \"But we are responsible for all the operations here. and once the device\
+                			 is operational, our reliance on the settlement will be over\", another scientist says. \
+                			 <a href='./decision'> You sit quietly, hoping nobody notices you.</a> </p>",
+                "decision": "<p>\"Hey you! New Guy! What do you think?\"\
+                			So much for hope.\
+                			It seems that the decision is again in your hands.</p>\
+                		 <ul class='options'>\
+                		 	<li><a href='./destroy'>Launch the rocket drone</a></li>\
+                		 	<li><a href='./enhance'>Launch the repair probe</a></li>\
+                		 </ul>",
+                
+                'fix': function(character, system, action) {
+                    system.write("<p>\"I think fixing is the correct solution. We have come this far. No use turning back now.\"</p>\
+                    <p>You gain the <strong>Ability to survive harch and inhospitable climates.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='nanotechnology-start'>Nanotechnology</a></li>\
+        	        <li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
+                    </ul>");
+                    system.setQuality("mars-terraforming-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'destroy': function(character, system, action) {
+                    system.write("<p>You decide that it is far too much of a risk and destroy the time vortex.</p>\
+                    <p>You gain the <strong>Ability to survive harch and inhospitable climates.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='nanotechnology-start'>Nanotechnology</a></li>\
+        			<li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
+                    </ul>");
+                    system.setQuality("mars-terraforming-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
             }
         }
     ),
     
     'context-free-languages-start': new undum.SimpleSituation(
-        "<h1>Context-Free Languages</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        "<h1>Distributed Computing</h1>\
+        <p>You have stumbled into a dark room. It appears that this universe is still in the process of being born.\
+        No matter. You still get to use this area to see if you would have been <a href='./good'>Good</a> or <a href='./evil'>Evil</a>\
+        Choose your path, and enjoy your free Mutation.</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
-                    "<p>The Headquarters of LLG are better than you have imagined. Of course, this is a parallel reality.</p>"
+                    "<p>The Head quarters of the LLG look better than you expected. Then again, this is an <em>alternate reality</em></p>"
                 );
-            }
+            },
+            
+            actions: {
+            'good': function(character, system, action) {
+                    system.write("\
+                    <p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
+                    <p class='transient'>A single door opens in front of you. The whisper that has been in you head all this time\
+                    calls out in a normal voice. <blockquote><center>\"Come in!\"</center></blockquote></p>\"
+                    );
+                    system.setQuality("context-free-languages-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'evil': function(character, system, action) {
+                    system.write("\
+                    <p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
+                    <p class='transient'>A single door opens in front of you. The whisper that has been in you head all this time\
+                    calls out in a normal voice. <blockquote><center>\"Come in!\"</center></blockquote></p>\"
+                    );
+                    system.setQuality("context-free-languages-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+             }
         }
     ),
     
