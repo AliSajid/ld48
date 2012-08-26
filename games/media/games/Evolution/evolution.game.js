@@ -169,7 +169,13 @@ undum.game.situations = {
                     system.setQuality("agi-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
-             }
+             },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
         }
     ),
     
@@ -232,7 +238,14 @@ undum.game.situations = {
                 }
             					
             					
+            },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
             }
+            
         }
     ),
     
@@ -281,7 +294,13 @@ undum.game.situations = {
                     system.setQuality("metaphysics-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
-           }
+           },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
         }
     ),
     
@@ -317,7 +336,13 @@ undum.game.situations = {
                     system.setQuality("nanotechnology-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
-             }
+             },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
         }
     ),
     
@@ -357,7 +382,13 @@ undum.game.situations = {
                     system.setQuality("string-theory-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
-             }
+             },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
         }
     ),
     
@@ -420,6 +451,12 @@ undum.game.situations = {
                     system.setQuality("time-lords-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
+            },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
             }
         }
     ),
@@ -479,6 +516,12 @@ undum.game.situations = {
                     system.setQuality("mars-terraforming-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
+            },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
             }
         }
     ),
@@ -506,14 +549,20 @@ undum.game.situations = {
                 },
 
             	'evil': function(character, system, action) {
-                    system.write("<p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
-                    <p>A single door opens in front of you. The whisper that has been in you head all this time\
+                    system.write("<p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>");
+                    system.write("<p>A single door opens in front of you. The whisper that has been in you head all this time\
                     calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
                     );
                     system.setQuality("context-free-languages-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
-             }
+             },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
         }
     ),
     
@@ -579,9 +628,15 @@ undum.game.situations = {
                     );
                     system.setQuality("biological-evolution-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
-                },
+                }
             				
-            	}
+            	},
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
           }
     ), 
     
@@ -623,7 +678,13 @@ undum.game.situations = {
                     system.setQuality("distributed-computing-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
-             }
+             },
+             
+             exit: function(character, system, to) {
+                system.animateQuality(
+                    'progress', character.qualities.progress + 1
+                );
+            }
         }
     ),
     
@@ -667,41 +728,25 @@ undum.game.situations = {
     
     "ascension-good": new undum.SimpleSituation(
         "<h1>The Ascension</h1>\
-        <p>You chose option two, which is my favourite option as well.\
-        I find the photographs accompanying option one to be too disturbing.\
-        Finger nails just shouldn't bend that way...</p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>\
+        <p>You decide that Ascending into a higher plane of existence would be the right thing to do, as you are presented with it already. After your Ascension, you make peace with all the other entities, and spend your days developing better worlds for the lower planes.</p>\
         <h1><strong>THE END</strong></h1>"
     ),
     
     "ascension-evil": new undum.SimpleSituation(
         "<h1>The Ascension</h1>\
-        <p>You chose option two, which is my favourite option as well.\
-        I find the photographs accompanying option one to be too disturbing.\
-        Finger nails just shouldn't bend that way...</p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>\
+        <p>You choose to ascend, because it is your right. Have you not persevered? Right after your ascension, you wage war against the entities. You finally kill all of them, and rule the multiverse as a lone vengeful god.</p>\
         <h1><strong>THE END</strong></h1>"
     ),
     
     "return-good": new undum.SimpleSituation(
         "<h1>The Return</h1>\
-        <p>You chose option two, which is my favourite option as well.\
-        I find the photographs accompanying option one to be too disturbing.\
-        Finger nails just shouldn't bend that way...</p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>\
+        <p>You choose to return. As you are heavily mutated and have many useful mutations, you spend the rest of your immortal life developing a way for every human to ascend.</p>\
         <h1><strong>THE END</strong></h1>"
     ),
     
     "return-evil": new undum.SimpleSituation(
         "<h1>The Return</h1>\
-        <p>You chose option two, which is my favourite option as well.\
-        I find the photographs accompanying option one to be too disturbing.\
-        Finger nails just shouldn't bend that way...</p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>\
+        <p>You return to vanquish the weaklings that populate your home-plane. With your abilities and mutations, you make them worship you. Your immortality proves nothing but an asset.</p>\
         <h1><strong>THE END</strong></h1>"
     ),
 };
