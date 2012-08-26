@@ -110,10 +110,8 @@ undum.game.situations = {
         	<li><a href='jupiter-brains-start'>Jupiter Brains</a></li>\
         	<li><a href='metaphysics-start'>Metaphysics</a></li>\
         	<li><a href='nanotechnology-start'>Nanotechnology</a></li>\
-        	<li><a href='string-theory-start'>String Theory</a></li>\
         	<li><a href='time-lords-start'>Time Lords</a></li>\
         	<li><a href='distributed-computing-start'>Distributed Computing</a></li>\
-        	<li><a href='mars-terraforming-start'>Mars</a></li>\
         	<li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
         	<li><a href='biological-evolution-start'>Biological Evolution</a></li>\
         </ul>"
@@ -245,45 +243,71 @@ undum.game.situations = {
         }
     ),
     
-//    var character.sandbox.examinedHerbivore
-//    var character.sandbox.examinedCarnivore
+
     'biological-evolution-start': new undum.SimpleSituation(
         "<h1>Biological Evolution</h1>\
         <p class='once'>You move through the door into another world.\
         Curiously, you feel lightheaded and dizzy. As if, you are everywhere.\
         You are looking over a wold that is lush green. You see a few peaceful <a href='./examine-herbivores'>herbivores</a>\
         grazing in the distance.</p>\
-        <p class='once'>Before you know it, a pack of <a href='./examine-carnivores'>carnivores</a> descends onto the herbivores, tearing them apart and devouring them without mercy. Once they are satiated, the return to their lair.</p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p class='once'>Before you know it, a pack of carnivores descends onto the herbivores, tearing them apart and devouring them without mercy. Once they are satiated, the return to their lair.</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
                     "<p>You feel like god, overseeing a world and messing with biology.</p>"
                 );
-            }
+            },
             
             actions: {
-            	"examine-herbivores": function(character, system, action) {
-            	if (character.qualities.examinedCarnivores = 1) {
-            			system.write("<p><a href='fate-of-evolution'>Having examined both species, you are ready to make your decision about their fate.</a></p>");
-            		} else {
-            		system.write("<p>The herbivores look peaceful and peace-loving. They seem to be a bit slow in speed.</p>\
-            		<p class='transient'>You should now take a look at the <a href='./examine-carnivores'>carnivores</a>.</p>");
-            		system.setQuality("examinedHerbivores", 1);
-            		  }
-            		},
-            	"examine-carnivores": function(character, system, action) {
-            	if (character.qualities.examinedHerbivores = 1) {
-            			system.write("<p><a href='fate-of-evolution'>Having examined both species, you are ready to make your decision about their fate.</a></p>");
-            		} else {
-            		system.write("<p>The carnivores look violent and violence-loving. They seem to be a bit fast in speed.</p>\
-            						  <p class='transient'>You should now take a look at the <a href='./examine-herbivores'>herbivores</a>.</p>");
-            		system.setQuality("examinedCarnivores", 1);
-            		}
-            	}
-            }
+            	"examine-herbivores": "<p>The herbivores look peaceful and peace-loving. They seem to be a bit slow in speed.</p>\
+            		<p class='transient'>You should now take a look at the <a href='./examine-carnivores'>carnivores</a>.</p>",
+
+            	"examine-carnivores": "<p>The carnivores look violent and violence-loving. They seem to be a bit fast in speed.</p>\
+            						   <p><a href='fate-of-evolution'>Having examined both species, you are ready to make your decision about their fate.</a></p>"
+            				
+           }
+      }
     ),
+    
+    "fate-of-evolution": new undum.SimpleSituation(
+        "<p>You are now face with a decision.\
+        You can either help the prey, become better evaders, Or you can help the predators, become better hunters.\
+        Make your decision carefully.</p>\
+        <p>Before you know it, a pack of carnivores descends onto the herbivores, tearing them apart and devouring them without mercy. Once they are satiated, the return to their lair.</p>\
+        <p class='transient'> The world awaits your decision...</p>\
+        <ul class='options'>\
+        	<li><a href='./enhance-herbivores'> Give power to the Herbivores</a></li>\
+        	<li><a href='./enhance-carnivores'> Give power to the Carnivores</a></li>\
+        </ul>",
+        {
+            actions: {
+            	'enhance-herbivores': function(character, system, action) {
+                    system.write("<p>You kill of the weaker, slower herbivores, while strengthening the stronger, faster ones.</p>\
+                    <p>You gain the <strong>Ability to rewrite Own Genetics</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='string-theory-start'>String Theory</a></li>\
+                    <li><a href='mars-terraforming-start'>Mars</a></li>\
+                    </ul>");
+                    system.setQuality("biological-evolution-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'enhance-carnivores': function(character, system, action) {
+                    system.write("<p>You kill of the weaker, less hungry carniivores, while strengthening the stronger, faster ones.</p>\
+                    <p>You gain the <strong>Ability to rewrite Own Genetics</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='string-theory-start'>String Theory</a></li>\
+                    <li><a href='mars-terraforming-start'>Mars</a></li>\
+                    </ul>");
+                    system.setQuality("biological-evolution-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                },
+            				
+            	}
+          }
+    ), 
     
     'distributed-computing-start': new undum.SimpleSituation(
         "<h1>Distributed Computing</h1>\
@@ -314,15 +338,39 @@ undum.game.qualities = {
 	goodness: new undum.IntegerQuality(
 		"Morality", {priority:"0001", group:'stats'}
 	),
-	"agi-item": new undum.OnOffQuality(
-		"Wisdom", {priority:"0001", group:"evolution", onDisplay:"&#10003;"}
+	progress: new undum.IntegerQuality(
+		"Progress", {priority:"0002", group:'stats'}
 	),
-	examinedHerbivores: new undum.OnOffQuality(
-		"Herbivores"
-		),
-	examinedCarnivores: new undum.OnOffQuality(
-		"Carnivores"
-		),
+	"agi-item": new undum.OnOffQuality(
+		"agi", {priority:"0001", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"jupiter-brains-item": new undum.OnOffQuality(
+		"jupiter brain", {priority:"0002", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"metaphysics-item": new undum.OnOffQuality(
+		"Metaphysics", {priority:"0003", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"nanotechnology-item": new undum.OnOffQuality(
+		"Nanotechnology", {priority:"0004", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"string-theory-item": new undum.OnOffQuality(
+		"String Theory", {priority:"0005", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"time-lords-item": new undum.OnOffQuality(
+		"Time Lords", {priority:"0006", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"distributed-computing-item": new undum.OnOffQuality(
+		"Distributed Computing", {priority:"0007", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"mars-terraforming-item": new undum.OnOffQuality(
+		"Mars Terraforming", {priority:"0008", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"context-free-language-item": new undum.OnOffQuality(
+		"Context Free Language", {priority:"0009", group:"evolution", onDisplay:"&#10003;"}
+	),
+	"biological-evolution-item": new undum.OnOffQuality(
+		"Biological Evolution", {priority:"0010", group:"evolution", onDisplay:"&#10003;"}
+	)
 
 };
 
@@ -335,7 +383,6 @@ undum.game.qualities = {
 undum.game.qualityGroups = {
 	stats: new undum.QualityGroup(null, {priority:"0001"}),
 	evolution: new undum.QualityGroup("Evolution", {priority:"0002"}),
-	"quest-related": new undum.QualityGroup(null, {extraClasses: "hated")
 };
 
 // ---------------------------------------------------------------------------
@@ -343,5 +390,6 @@ undum.game.qualityGroups = {
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
     system.setCharacterText("<p>You are at home, trying to sleep.</p>");
-    character.
+    character.qualities.goodness = 0;
+    character.qualities.progress = 0;
 };
