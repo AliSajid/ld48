@@ -121,15 +121,13 @@ undum.game.situations = {
     
     'agi-start': new undum.SimpleSituation(
         "<h1>Artificial General Intellignece</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>From here it is just a <a href='central-portal'>short step</a> to the\
+        final bits of content.</p>",
         {
             enter: function(character, system, from) {
+                system.setQuality("agi-item", 1);
                 system.setCharacterText(
-                    "<p>You are in the presence of an Artificial Intellignece</p>"
+                    "<p>You are in the presence of an Artificial Intelligence</p>"
                 );
             }
         }
@@ -177,7 +175,7 @@ undum.game.situations = {
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
-                    "<p>You are in a factory of some sor.</p>"
+                    "<p>You are in a factory of some sort.</p>"
                 );
             }
         }
@@ -247,11 +245,15 @@ undum.game.situations = {
         }
     ),
     
+//    var character.sandbox.examinedHerbivore
+//    var character.sandbox.examinedCarnivore
     'biological-evolution-start': new undum.SimpleSituation(
         "<h1>Biological Evolution</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
+        <p class='once'>You move through the door into another world.\
+        Curiously, you feel lightheaded and dizzy. As if, you are everywhere.\
+        You are looking over a wold that is lush green. You see a few peaceful <a href='./examine-herbivores'>herbivores</a>\
+        grazing in the distance.</p>\
+        <p class='once'>Before you know it, a pack of <a href='./examine-carnivores'>carnivores</a> descends onto the herbivores, tearing them apart and devouring them without mercy. Once they are satiated, the return to their lair.</p>\
         <p>From here it is just a <a href='saving'>short step</a> to the\
         final bits of content in this tutorial.</p>",
         {
@@ -260,7 +262,27 @@ undum.game.situations = {
                     "<p>You feel like god, overseeing a world and messing with biology.</p>"
                 );
             }
-        }
+            
+            actions: {
+            	"examine-herbivores": function(character, system, action) {
+            	if (character.qualities.examinedCarnivores = 1) {
+            			system.write("<p><a href='fate-of-evolution'>Having examined both species, you are ready to make your decision about their fate.</a></p>");
+            		} else {
+            		system.write("<p>The herbivores look peaceful and peace-loving. They seem to be a bit slow in speed.</p>\
+            		<p class='transient'>You should now take a look at the <a href='./examine-carnivores'>carnivores</a>.</p>");
+            		system.setQuality("examinedHerbivores", 1);
+            		  }
+            		},
+            	"examine-carnivores": function(character, system, action) {
+            	if (character.qualities.examinedHerbivores = 1) {
+            			system.write("<p><a href='fate-of-evolution'>Having examined both species, you are ready to make your decision about their fate.</a></p>");
+            		} else {
+            		system.write("<p>The carnivores look violent and violence-loving. They seem to be a bit fast in speed.</p>\
+            						  <p class='transient'>You should now take a look at the <a href='./examine-herbivores'>herbivores</a>.</p>");
+            		system.setQuality("examinedCarnivores", 1);
+            		}
+            	}
+            }
     ),
     
     'distributed-computing-start': new undum.SimpleSituation(
@@ -273,7 +295,7 @@ undum.game.situations = {
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
-                    "<p>This seems to be a grid comuter of some sort. You are <strong><em>inside</em></strong> a grid computer.</p>"
+                    "<p>This seems to be a grid computer of some sort. You are <strong><em>inside</em></strong> a grid computer.</p>"
                 );
             }
         }
@@ -289,6 +311,18 @@ undum.game.start = "bedroom";
  * possess. We don't have to be exhaustive, but if we miss one out then
  * that quality will never show up in the character bar in the UI. */
 undum.game.qualities = {
+	goodness: new undum.IntegerQuality(
+		"Morality", {priority:"0001", group:'stats'}
+	),
+	"agi-item": new undum.OnOffQuality(
+		"Wisdom", {priority:"0001", group:"evolution", onDisplay:"&#10003;"}
+	),
+	examinedHerbivores: new undum.OnOffQuality(
+		"Herbivores"
+		),
+	examinedCarnivores: new undum.OnOffQuality(
+		"Carnivores"
+		),
 
 };
 
@@ -299,7 +333,9 @@ undum.game.qualities = {
  * the end. It is an error to have a quality definition belong to a
  * non-existent group. */
 undum.game.qualityGroups = {
-
+	stats: new undum.QualityGroup(null, {priority:"0001"}),
+	evolution: new undum.QualityGroup("Evolution", {priority:"0002"}),
+	"quest-related": new undum.QualityGroup(null, {extraClasses: "hated")
 };
 
 // ---------------------------------------------------------------------------
@@ -307,4 +343,5 @@ undum.game.qualityGroups = {
  * to configure the character at the start of play. */
 undum.game.init = function(character, system) {
     system.setCharacterText("<p>You are at home, trying to sleep.</p>");
+    character.
 };
