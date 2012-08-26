@@ -205,7 +205,7 @@ undum.game.situations = {
                 system.setCharacterText(
                     "<p>You are surrounded by knowledge and ignorance.</p>"
                 );
-            }
+            },
             
             actions: {
             
@@ -286,7 +286,7 @@ undum.game.situations = {
                 system.setCharacterText(
                     "<p>You are in Gallifrey.</p>"
                 );
-            }
+            },
             
             actions: {
             	"time-vortex": "<p>You ask around about the time vortex. A helpful native points you to the \
@@ -332,7 +332,7 @@ undum.game.situations = {
                     </ul>");
                     system.setQuality("time-lords-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
-                
+                }
             }
         }
     ),
