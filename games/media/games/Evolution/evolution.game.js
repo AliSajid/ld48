@@ -103,15 +103,13 @@ undum.game.situations = {
         "<h1>The Circle of Light</h1>\
         <p>You keep moving towards the circle of light, as if your body is not in your control.\
         As soon as you reach the circle, you feel your body jerk and then lift off the ground. In front of you, you see ten different doorways. A voice in your head whispers \"You are the chosen one. You shall bring light or darkness to the worlds of Mool.\"</p>\
-        <p>The whisper fades into nothingness, leaving more questions than answers. But one thing is clear. You have to go into one of the ten doorways.</p>\
+        <p>The whisper fades into nothingness, leaving more questions than answers. But one thing is clear. You have to go into one of the two doorways.</p>\
         <p class='transient'> The worlds await...</p>\
         <ul class='options'>\
         	<li><a href='agi-start'>Artificial General Intelligence</a></li>\
-        	<li><a href='jupiter-brains-start'>Jupiter Brains</a></li>\
         	<li><a href='metaphysics-start'>Metaphysics</a></li>\
         	<li><a href='nanotechnology-start'>Nanotechnology</a></li>\
         	<li><a href='time-lords-start'>Time Lords</a></li>\
-        	<li><a href='distributed-computing-start'>Distributed Computing</a></li>\
         	<li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
         	<li><a href='biological-evolution-start'>Biological Evolution</a></li>\
         </ul>"
@@ -119,15 +117,63 @@ undum.game.situations = {
     
     'agi-start': new undum.SimpleSituation(
         "<h1>Artificial General Intellignece</h1>\
-        <p>From here it is just a <a href='central-portal'>short step</a> to the\
-        final bits of content.</p>",
+        <p>You appear into a bleak, shiny and metallic world. Around you are windowless walls. You see a \
+        <a href='./examine-console'>console.</a></p>",
         {
             enter: function(character, system, from) {
-                system.setQuality("agi-item", 1);
                 system.setCharacterText(
                     "<p>You are in the presence of an Artificial Intelligence</p>"
                 );
-            }
+            },
+            
+            actions: {
+            	"examine-console": "<p>As soon as you touch the console, it comes to life. \
+            						Colors start randomly changing on the screen.\
+            						In a minute, the colors assemble themselves into a face. \
+            						A whisper comes into your mind, just like back in the circle of light.</p>\
+            						<blockquote><p>This is an AI on the verge of becoming a fully \
+            						generalized Artificial Inteligence. <a href='./help-ai'>Help it become one</a>, \
+            						or <a href='./destroy-ai'>destroy it</a> to annihilate the civilization to which \
+            						it is a god.</p></blockquote>",
+            						
+            	"help-ai": "<p>You ponder helping the AI become a fully conscius being. \
+            				And the AI on the screen begins to speak.</p>\
+            				<p><blockquote> I am a benevolent god to my subjects. All I ask \
+            				is the ability to empathize with them, so I can be an even better \
+            				god to them. If you destroy me, you will doom them to centuries of \
+            				chaos and eventual extinction.</blockquote></p>\
+            				<p class='transient'> <a href='./decide-help'> You decide to help the AI</a></p>",
+            				
+            	"destroy-ai": "</p>You think about the destruction of the AI to rid the universe of the scum.</p>\
+            					<p><blockquote> I am a benevolent god to my subjects. All I ask is the ability \
+            					to empathize with them, so I can be an even better god to them. If you destroy me, \
+            					you will doom them to centuries of chaos and eventual extinction.</blockquote></p>\
+            					<p class='transient'> <a href='./decide-destroy'> You decide to destroy the AI</a></p>",
+            					
+            	'decide-help': function(character, system, action) {
+                    system.write("<p>You decide to help the AI figure out emotions and become a true AGI</p>\
+                    <p>You gain the <strong>Ability to Modify NueroPsychological Structure</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='jupiter-brains-start'>Jupiter Brains</a></li>\
+                    <li><a href='distributed-computing-start'>Distributed Computing</a></li>\
+                    </ul>");
+                    system.setQuality("agi-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'decide-destroy': function(character, system, action) {
+                    system.write("<p>You shut down the power to the AI, effectively killing it.</p>\
+                    <p>You gain the <strong>Ability to Modify NueroPsychological Structure</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='jupiter-brains-start'>Jupiter Brains</a></li>\
+                    <li><a href='distributed-computing-start'>Distributed Computing</a></li>\
+                    </ul>");
+                    system.setQuality("agi-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+             }
         }
     ),
     
