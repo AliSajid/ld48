@@ -179,7 +179,7 @@ undum.game.situations = {
         you. You feel huge. Really huge. Absurdly huge. Planet-sized huge. All around you, \
         you see whole solar systems. You see two planets that stand out, being much much larger \
         that any other planet in sight.</p>\
-        <p class='transient'><a href='./investigation'> Maybe you should investigate</a></p>",
+        <p class='transient'><a href='./investigate'> Maybe you should investigate</a></p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
@@ -287,33 +287,77 @@ undum.game.situations = {
     
     'nanotechnology-start': new undum.SimpleSituation(
         "<h1>Nanotechnology</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>You have stumbled into a dark room. It appears that this universe is still in the process of being born.\
+        No matter. You still get to use this area to see if you would have been <a href='./good'>Good</a> or <a href='./evil'>Evil</a>\
+        Choose your path, and enjoy your free Mutation.</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
-                    "<p>You are in a factory of some sort.</p>"
+                    "<p>You seem to be in a factory of some sort.</p>"
                 );
-            }
+            },
+            
+            actions: {
+            'good': function(character, system, action) {
+                    system.write("<p>You gain the <strong>Ability to Fabricate Materials at near-lightspeed.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <p>A single door opens in front of you. The whisper that has been in you head all this time\
+                    calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
+                    );
+                    system.setQuality("nanotechnology-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'evil': function(character, system, action) {
+                    system.write("<p>You gain the <strong>Ability to Fabricate Materials at near-lightspeed.</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <p>A single door opens in front of you. The whisper that has been in you head all this time\
+                    calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
+                    );
+                    system.setQuality("nanotechnology-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+             }
         }
     ),
     
     'string-theory-start': new undum.SimpleSituation(
         "<h1>String Theory</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>You have stumbled into a dark room. It appears that this universe is still in the process of being born.\
+        No matter. You still get to use this area to see if you would have been <a href='./good'>Good</a> or <a href='./evil'>Evil</a>\
+        Choose your path, and enjoy your free Mutation.</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
-                    "<p>It seems you are back in the university. Well, <em>A</em> University.</p>"
+                    "<p>This seems to be a grid computer of some sort. You are <strong><em>inside</em></strong> a grid computer.</p>"
                 );
-            }
+            },
+            
+            actions: {
+            'good': function(character, system, action) {
+                    system.write("\
+                    <p>You gain the <strong>The ability to reshape reality</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='nanotechnology-start'>Nanotechnology</a></li>\
+        	        <li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
+                    </ul>");
+                    system.setQuality("string-theory-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'evil': function(character, system, action) {
+                    system.write("\
+                    <p>You gain the <strong>The ability to reshape reality</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='nanotechnology-start'>Nanotechnology</a></li>\
+        	        <li><a href='context-free-languages-start'>Context-Free Languages</a></li>\
+                    </ul>");
+                    system.setQuality("string-theory-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+             }
         }
     ),
     
@@ -335,7 +379,7 @@ undum.game.situations = {
             	"time-vortex": "<p>You ask around about the time vortex. A helpful native points you to the \
             	huge building nearby. You go inside the building. Inside, the building looks almost exactly like \
             	a church, except that instead of cross, there is a Vortex of some kind. this would certainly be the time vortex.\
-                A <a href='./priest>friendly looking guy</a> in a funny dress stands near the vortex.</p>",
+                A <a href='./priest'>friendly looking guy</a> in a funny dress stands near the vortex.</p>",
                 
                 "priest": "<p>You approach the priest. <blockquote> \"Well Met, traveller. I see you are admiring \
                 		   our lord's blessing. The time vortex helps us in predicting the future and make better decisions.\
@@ -409,7 +453,7 @@ undum.game.situations = {
                 			It seems that the decision is again in your hands.</p>\
                 		 <ul class='options'>\
                 		 	<li><a href='./destroy'>Launch the rocket drone</a></li>\
-                		 	<li><a href='./enhance'>Launch the repair probe</a></li>\
+                		 	<li><a href='./fix'>Launch the repair probe</a></li>\
                 		 </ul>",
                 
                 'fix': function(character, system, action) {
@@ -440,7 +484,7 @@ undum.game.situations = {
     ),
     
     'context-free-languages-start': new undum.SimpleSituation(
-        "<h1>Distributed Computing</h1>\
+        "<h1>Context Free Languages</h1>\
         <p>You have stumbled into a dark room. It appears that this universe is still in the process of being born.\
         No matter. You still get to use this area to see if you would have been <a href='./good'>Good</a> or <a href='./evil'>Evil</a>\
         Choose your path, and enjoy your free Mutation.</p>",
@@ -453,20 +497,18 @@ undum.game.situations = {
             
             actions: {
             'good': function(character, system, action) {
-                    system.write("\
-                    <p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
-                    <p class='transient'>A single door opens in front of you. The whisper that has been in you head all this time\
-                    calls out in a normal voice. <blockquote><center>\"Come in!\"</center></blockquote></p>\"
+                    system.write("<p>You gain the<strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
+                    <p>A single door opens in front of you. The whisper that has been in you head all this time\
+                    calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
                     );
                     system.setQuality("context-free-languages-item", 1);
                     system.setQuality("goodness", character.qualities.goodness + 1);
                 },
 
             	'evil': function(character, system, action) {
-                    system.write("\
-                    <p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
-                    <p class='transient'>A single door opens in front of you. The whisper that has been in you head all this time\
-                    calls out in a normal voice. <blockquote><center>\"Come in!\"</center></blockquote></p>\"
+                    system.write("<p>You gain the <strong>Instantaneuous Visualization of all the meanings of any sentence in any language.</strong></p>\
+                    <p>A single door opens in front of you. The whisper that has been in you head all this time\
+                    calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
                     );
                     system.setQuality("context-free-languages-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
@@ -520,7 +562,8 @@ undum.game.situations = {
                     <ul class='options'>\
                     <li><a href='string-theory-start'>String Theory</a></li>\
                     <li><a href='mars-terraforming-start'>Mars</a></li>\
-                    </ul>");
+                    </ul>"
+                    );
                     system.setQuality("biological-evolution-item", 1);
                     system.setQuality("goodness", character.qualities.goodness + 1);
                 },
@@ -532,7 +575,8 @@ undum.game.situations = {
                     <ul class='options'>\
                     <li><a href='string-theory-start'>String Theory</a></li>\
                     <li><a href='mars-terraforming-start'>Mars</a></li>\
-                    </ul>");
+                    </ul>"
+                    );
                     system.setQuality("biological-evolution-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 },
@@ -555,30 +599,110 @@ undum.game.situations = {
             
             actions: {
             'good': function(character, system, action) {
-                    system.write("\
-                    <p>You gain the <strong>MegaQubit Processing speed for yourself.</strong></p>\
+                    system.write(
+                    "<p>You gain the <strong>MegaQubit Processing speed for yourself.</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <ul class='options'>\
                     <li><a href='time-lords-start'>Time Lords</a></li>\
                     <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
-                    </ul>");
+                    </ul>"
+                    );
                     system.setQuality("distributed-computing-item", 1);
                     system.setQuality("goodness", character.qualities.goodness + 1);
                 },
 
             	'evil': function(character, system, action) {
-                    system.write("\
-                    <p>You gain the <strong>MegaQubit Processing speed for yourself.</strong></p>\
+                    system.write(
+                    "<p>You gain the <strong>MegaQubit Processing speed for yourself.</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <ul class='options'>\
                     <li><a href='time-lords-start'>Time Lords</a></li>\
                     <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
-                    </ul>");
-                    system.setQuality("jupiter-brain-item", 1);
+                    </ul>"
+                    );
+                    system.setQuality("distributed-computing-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
              }
         }
+    ),
+    
+    'finale': new undum.SimpleSituation(
+        "<h1>Finale</h1>\
+        <p>You shield your eyes as you move into the room. The room is full of bright light.\
+        The voice calls out for you:</p>\
+        <p><blockquote>\" For eons, I have waited for a being worthy of the trials. \
+        You have not only proven yoursef worthy of them, but also have finished the trials \
+        and evolved yourself into a being that is self-evolving on every scale. You have learned well \
+        from your forays in the multiverse.\"</blockquote></p>\
+        <br/>\
+        <p>\"Your Trials are finally over. Now, you have only one final choice to make.\
+        Will you Ascend into our plane, with us, Or return to your own Plane. As Always, choose wisely.\"</p>\
+        <ul class='options'>\
+        	<li><a href='./ascension'>Ascend</a></li>\
+    		<li><a href='./return'>Return</a></li>\
+    	</ul>",
+    	
+        {	
+    		actions: {
+    		
+    		'ascension': function(character, system, action) {
+                    if (character.qualities.goodness > 0) {
+                    	system.doLink("ascension-good");
+                    	} else {
+                    	system.doLink("ascension-evil");
+                    	}
+                    },
+    		'return': function(character, system, action) {
+                    if (character.qualities.goodness < 0) {
+                    	system.doLink("return-good");
+                    	} else {
+                    	system.doLink("return-evil");
+                    	}
+                    }
+    		
+    		}
+        }
+    ),
+    
+    "ascension-good": new undum.SimpleSituation(
+        "<h1>The Ascension</h1>\
+        <p>You chose option two, which is my favourite option as well.\
+        I find the photographs accompanying option one to be too disturbing.\
+        Finger nails just shouldn't bend that way...</p>\
+        <p>From here it is just a <a href='saving'>short step</a> to the\
+        final bits of content in this tutorial.</p>\
+        <h1><strong>THE END</strong></h1>"
+    ),
+    
+    "ascension-evil": new undum.SimpleSituation(
+        "<h1>The Ascension</h1>\
+        <p>You chose option two, which is my favourite option as well.\
+        I find the photographs accompanying option one to be too disturbing.\
+        Finger nails just shouldn't bend that way...</p>\
+        <p>From here it is just a <a href='saving'>short step</a> to the\
+        final bits of content in this tutorial.</p>\
+        <h1><strong>THE END</strong></h1>"
+    ),
+    
+    "return-good": new undum.SimpleSituation(
+        "<h1>The Return</h1>\
+        <p>You chose option two, which is my favourite option as well.\
+        I find the photographs accompanying option one to be too disturbing.\
+        Finger nails just shouldn't bend that way...</p>\
+        <p>From here it is just a <a href='saving'>short step</a> to the\
+        final bits of content in this tutorial.</p>\
+        <h1><strong>THE END</strong></h1>"
+    ),
+    
+    "return-evil": new undum.SimpleSituation(
+        "<h1>The Return</h1>\
+        <p>You chose option two, which is my favourite option as well.\
+        I find the photographs accompanying option one to be too disturbing.\
+        Finger nails just shouldn't bend that way...</p>\
+        <p>From here it is just a <a href='saving'>short step</a> to the\
+        final bits of content in this tutorial.</p>\
+        <h1><strong>THE END</strong></h1>"
     ),
 };
 
