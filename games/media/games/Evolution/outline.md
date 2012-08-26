@@ -43,7 +43,7 @@
 * You reactivate the rift generator and are able to progress into the world further.
 
 ### AGI Puzzle
-There is a Weak AI that wants to undersstand more about the Human Emotions. The Player Teaches it that and it becomes a strong AI.
+There is a Weak AI that wants to understand more about the Human Emotions. The Player Teaches it that and it becomes a strong AI.
 
 #### Goal
 * Help the Weak-AI understand Emotions, and become an AGI
