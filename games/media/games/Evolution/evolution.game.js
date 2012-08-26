@@ -195,17 +195,50 @@ undum.game.situations = {
     
     'metaphysics-start': new undum.SimpleSituation(
         "<h1>Metaphysics</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>As you step through the door, the world around you disappears. All that surrounds you \
+        is white nothingness. The Whisper comes again.\
+        <blockquote>This is the Metaphysical Reality. It surrounds you, and permeates every thing\
+        in the universe. But at the moment, <a href='./ignorance'> and <a href='./knowledge'> are\
+         at war. Who will you side with?</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
                     "<p>You are surrounded by knowledge and ignorance.</p>"
                 );
             }
+            
+            actions: {
+            
+            	"ignorance": "<p> \"Ignorance is bliss\", you heard someone say once. \
+            				  Besides, somethings are better left unknown.</p>\
+            				  <p> <a href='./help-ignorance'> You decide to champion ignorance. </a> </p>",
+                "knowledge": "<p> \"Knowledge is Power\", you heard someone say once. \
+            				  And the more you know, the more power you weild.</p>\
+            				  <p> <a href='./help-knowledge'> You decide to champion knowledge. </a> </p>",
+            	'help-knowledge': function(character, system, action) {
+                    system.write("<p>You decide to champion Knowledge and smite the ignorance out of the realm.</p>\
+                    <p>You gain the <strong>Ability to Manipulate Morality and Reality</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='jupiter-brains-start'>Jupiter Brains</a></li>\
+                    <li><a href='distributed-computing-start'>Distributed Computing</a></li>\
+                    </ul>");
+                    system.setQuality("metaphysics-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'help-ignorance': function(character, system, action) {
+                    system.write("<p>You decide that the unknown uncertainty is better, and strike off knowledge from reality.</p>\
+                    <p>You gain the <strong>Ability to Manipulate Morality and Reality</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='jupiter-brains-start'>Jupiter Brains</a></li>\
+                    <li><a href='distributed-computing-start'>Distributed Computing</a></li>\
+                    </ul>");
+                    system.setQuality("metaphysics-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                }
+           }
         }
     ),
     
@@ -243,16 +276,63 @@ undum.game.situations = {
     
     'time-lords-start': new undum.SimpleSituation(
         "<h1>Time Lords</h1>\
-        <p>You chose option one, which is probably for the best, since\
-        option two is written in badly rhyming Coptic.\
-        </p>\
-        <p>From here it is just a <a href='saving'>short step</a> to the\
-        final bits of content in this tutorial.</p>",
+        <p>You find yourself in Gallifrey. The sky is a bright Orange,\
+         and the planet is elegent and serene.\
+         The Voice calls out again: \
+         <blockquote>\"Welcome to gallifrey. Here, the <a href='./time-vortex'>time vortex</a> opens. With your help, \
+         the time lords will evolve. Or not. The Choice is yours. </blockquote></p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
                     "<p>You are in Gallifrey.</p>"
                 );
+            }
+            
+            actions: {
+            	"time-vortex": "<p>You ask around about the time vortex. A helpful native points you to the \
+            	huge building nearby. You go inside the building. Inside, the building looks almost exactly like \
+            	a church, except that instead of cross, there is a Vortex of some kind. this would certainly be the time vortex.\
+                A <a href='./priest>friendly looking guy</a> in a funny dress stands near the vortex.</p>",
+                
+                "priest": "<p>You approach the priest. <blockquote> \"Well Met, traveller. I see you are admiring \
+                		   our lord's blessing. The time vortex helps us in predicting the future and make better decisions.\
+                		   Would you like to <a href='./pray'>pray to the vortex for guidance?\"</a></p>",
+                "pray": "<p>You nod, humoring the priest. The priest motions for you to kneel \
+                		 at the pedestal. You kneel, and your head is suddenly full of more information \
+                		 than you can have use for. Another voice, mournful and pleading, dominates the noise in your head.\
+                		 <blockquote>\" Hear me traveller, for I have waited long for you. The pedestal you kneel at, holds \
+                		 the key to the future of this universe. You can knock the pedestal, to disturb the flux of the vortex \
+                		 causing it to close. Or you can straighten it, making the vortex more powerful, and making the people \
+                		 around it more and more powerful. Choose wisely, Traveller. Your choice will decide the fate of the universe.\"\
+                		 <p class='transient'>The choice has now been given to you. What will you choose?</p>\
+                		 <ul class='options'>\
+                		 	<li><a href='./destroy'>Destroy the Time Vortex</a></li>\
+                		 	<li><a href='./enhance'>Enhance the Time Vortex</a></li>\
+                		 </ul>",
+                
+                'enhance': function(character, system, action) {
+                    system.write("<p>You decide to take a gamble and enhance the time vortex, ensuring the creation of Time Lords.</p>\
+                    <p>You gain the <strong>Ability to Manipulate Time and Space</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='string-theory-start'>String Theory</a></li>\
+                    <li><a href='mars-terraforming-start'>Mars</a></li>\
+                    </ul>");
+                    system.setQuality("time-lords-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness + 1);
+                },
+
+            	'destroy': function(character, system, action) {
+                    system.write("<p>You decide that it is far too much of a risk and destroy the time vortex.</p>\
+                    <p>You gain the <strong>Ability to Manipulate Time and Space</strong></p>\
+                    <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
+                    <ul class='options'>\
+                    <li><a href='string-theory-start'>String Theory</a></li>\
+                    <li><a href='mars-terraforming-start'>Mars</a></li>\
+                    </ul>");
+                    system.setQuality("time-lords-item", 1);
+                    system.setQuality("goodness", character.qualities.goodness - 1);
+                
             }
         }
     ),
@@ -388,10 +468,10 @@ undum.game.qualities = {
 		"Progress", {priority:"0002", group:'stats'}
 	),
 	"agi-item": new undum.OnOffQuality(
-		"agi", {priority:"0001", group:"evolution", onDisplay:"&#10003;"}
+		"AGI", {priority:"0001", group:"evolution", onDisplay:"&#10003;"}
 	),
 	"jupiter-brains-item": new undum.OnOffQuality(
-		"jupiter brain", {priority:"0002", group:"evolution", onDisplay:"&#10003;"}
+		"Jupiter Brain", {priority:"0002", group:"evolution", onDisplay:"&#10003;"}
 	),
 	"metaphysics-item": new undum.OnOffQuality(
 		"Metaphysics", {priority:"0003", group:"evolution", onDisplay:"&#10003;"}
