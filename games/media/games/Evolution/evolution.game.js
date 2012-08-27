@@ -254,7 +254,7 @@ undum.game.situations = {
         <p>As you step through the door, the world around you disappears. All that surrounds you \
         is white nothingness. The Whisper comes again.\
         <blockquote>This is the Metaphysical Reality. It surrounds you, and permeates every thing\
-        in the universe. But at the moment, <a href='./ignorance'> and <a href='./knowledge'> are\
+        in the universe. But at the moment, <a href='./ignorance'>Ignorance</a> and <a href='./knowledge'> Knowledge </a> are\
          at war. Who will you side with?</p>",
         {
             enter: function(character, system, from) {
