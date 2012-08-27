@@ -13,7 +13,7 @@ undum.game.id = "37a5effc-51df-4a48-991b-2dd43ff2fab4";
  * used to control saved-games. If you change the content of a game,
  * the saved games are unlikely to work. Changing this version number
  * prevents Undum from trying to load the saved-game and crashing. */
-undum.game.version = "0.1";
+undum.game.version = "1.0";
 
 /* The situations that the game can be in. Each has a unique ID. */
 undum.game.situations = {   
@@ -78,7 +78,7 @@ undum.game.situations = {
         "<h1>The Rift Generator.</h1>\
         <p>You follow the red wires to the edge of the room. The wires seem to disappear into the wall.\
         You notice a button on the wall.</p>\
-        <p class='transient'> That button sure looks tempting. Maybe you should <a href='./push-button'>push it.</a></p>",
+        <p class='transient once' > That button sure looks tempting. Maybe you should <a href='./push-button'>push it.</a></p>",
         {
             actions: {
                 "push-button": "<p>You push the button. You here a grumbling sound and the walls in front of you split open.\
@@ -433,8 +433,8 @@ undum.game.situations = {
                     <p>You gain the <strong>Ability to Manipulate Time and Space</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <ul class='options'>\
-                    <li><a href='string-theory-start'>String Theory</a></li>\
-                    <li><a href='mars-terraforming-start'>Mars</a></li>\
+                    	<li><a href='string-theory-start'>String Theory</a></li>\
+                    	<li><a href='mars-terraforming-start'>Mars</a></li>\
                     </ul>");
                     system.setQuality("time-lords-item", 1);
                     system.setQuality("goodness", character.qualities.goodness + 1);
@@ -445,8 +445,8 @@ undum.game.situations = {
                     <p>You gain the <strong>Ability to Manipulate Time and Space</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <ul class='options'>\
-                    <li><a href='string-theory-start'>String Theory</a></li>\
-                    <li><a href='mars-terraforming-start'>Mars</a></li>\
+                    	<li><a href='string-theory-start'>String Theory</a></li>\
+                    	<li><a href='mars-terraforming-start'>Mars</a></li>\
                     </ul>");
                     system.setQuality("time-lords-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
