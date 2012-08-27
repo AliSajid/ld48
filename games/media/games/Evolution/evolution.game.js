@@ -25,7 +25,7 @@ undum.game.situations = {
          then it is Goodbye, Engineering, and Hello, Burger Flipping. You ponder over \
          your life. It seems too mundane. Too simple for your comfort. \
          You are lost in your thoughts when you hear a small crash in the lounge outside. \
-         It is <a = href='./check-time'>Quite Late</a></p>\
+         It is <a class='once' href='./check-time'>Quite Late</a></p>\
          <p class='transient'>Maybe you should go to the <a href='lounge'> Investigate the noise.</a></p>",
          {
             actions: {
@@ -209,31 +209,33 @@ undum.game.situations = {
             					the other. And just like that, the whisper comes again. <blockquote> \" You must help One of them reach \
             					victory.\" </blockquote> </p>\
             					<p> The destiny of a realm is again in your hand. Who would you grant the sweet gift of victory?</p>\
-            					<ul class='options'>\
+            					<p class='transient'><ul class='options transient'>\
             						<li><a href='./philosophers'>Let reason win. Help the philosophers!</a></li>\
             						<li><a href='./warriors'>Let furor win. Help the warriors!</a></li>\
-            					</ul>",
+            					</ul></p>",
             	'philosophers': function(character, system, action) {
-                    system.write("<p>You decide to overpower your primal Instincts, and destroy the Warrior Jupiter Brain</p>\
-                    <p>You gain the <strong>ExaExabit memory storage.</strong></p>\
+                    system.write(
+                    "<p>You gain the <strong>Exaexabit Memory Storage.</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <ul class='options'>\
                     <li><a href='time-lords-start'>Time Lords</a></li>\
                     <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
-                    </ul>");
-                    system.setQuality("jupiter-brain-item", 1);
+                    </ul>"
+                    );
+                    system.setQuality("jupiter-brains-item", 1);
                     system.setQuality("goodness", character.qualities.goodness + 1);
                 },
 
             	'warriors': function(character, system, action) {
-                    system.write("<p>You decide that the Primal Urges are the reason of evolution and progress and destroy the Philosopher Jupiter Brain.</p>\
-                    <p>You gain the <strong>ExaExabit memory storage.</strong></p>\
+                    system.write(
+                    "<p>You gain the <strong>Exaexabit Memory Storage.</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <ul class='options'>\
                     <li><a href='time-lords-start'>Time Lords</a></li>\
                     <li><a href='biological-evolution-start'>Biological Evolution</a></li>\
-                    </ul>");
-                    system.setQuality("jupiter-brain-item", 1);
+                    </ul>"
+                    );
+                    system.setQuality("jupiter-brains-item", 1);
                     system.setQuality("goodness", character.qualities.goodness - 1);
                 }
             					
@@ -480,7 +482,7 @@ undum.game.situations = {
             							looks like it's in full swing. An orderly at the door motions you in.\
             							<a href='./meeting'>Attending the meeting might be a good idea.</a></p>",
                 
-                "meeting": "<p>You go inside the meeting room. \"..And I'm tellingyou taht we'll be wasting time\
+                "meeting": "<p>You go inside the meeting room. \"..And I'm telling you that we'll be wasting time\
                 			 in fixing the device. We have almost run out of supplies and fixing the device will not help.\"\
                 			 remarks one scientist angrily. \n \"But we are responsible for all the operations here. and once the device\
                 			 is operational, our reliance on the settlement will be over\", another scientist says. \
