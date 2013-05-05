@@ -13,7 +13,7 @@ undum.game.id = "37a5effc-51df-4a48-991b-2dd43ff2fab4";
  * used to control saved-games. If you change the content of a game,
  * the saved games are unlikely to work. Changing this version number
  * prevents Undum from trying to load the saved-game and crashing. */
-undum.game.version = "1.0";
+undum.game.version = "1.1";
 
 /* The situations that the game can be in. Each has a unique ID. */
 undum.game.situations = {   
@@ -173,7 +173,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.0,to:0.2,showValue=false}
                 );
             }
         }
@@ -244,7 +244,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.2,to:0.4,showValue=false}
+
                 );
             }
             
@@ -300,7 +301,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.0,to:0.2,showValue=false}
+
                 );
             }
         }
@@ -308,9 +310,9 @@ undum.game.situations = {
     
     'nanotechnology-start': new undum.SimpleSituation(
         "<h1>Nanotechnology</h1>\
-        <p>You have stumbled into a dark room. It appears that this universe is still in the process of being born.\
-        No matter. You still get to use this area to see if you would have been <a href='./good'>Good</a> or <a href='./evil'>Evil</a>\
-        Choose your path, and enjoy your free Mutation.</p>",
+        <p>You seem to be in a huge factory. Oddly, the factory seems empty but you can hear the machines running. \
+        Furthermore, you can\'t really see what is actually being made on the conveyor belts. <a href='./examine-door'>You see a door in front of you.</a>\
+        There is a <a href='./sign' class='once'>huge red sign</a> next to it as well.</p>",
         {
             enter: function(character, system, from) {
                 system.setCharacterText(
@@ -319,8 +321,20 @@ undum.game.situations = {
             },
             
             actions: {
+            'examine-door': function(character, system, action) {
+              system.write("<p>This seems to be a control room. It appears that this is a factory that produces multi-purpose nanomachines, capable of fabricating every object known to man. It appears that someone has been using them to manufacture massive amounts of weaponry in a bid to start an arms race. You see a button that would shut down the factory, and dismantle all the weaponry. But the console to one side would allow you to take control of this operation.</p>
+              <p>You need to make a choice here. Should you <a href='./good'>Dismantle this operation</a> Or <a href='./evil'>Take over this operation</a></p>"
+                    );
+                },
+
+            'sign': function(character, system, action) {
+                    system.write("<p>The sign says <strong>Authorized Personnel Only</strong></p>"
+                    );
+                },
+
             'good': function(character, system, action) {
-                    system.write("<p>You gain the <strong>Ability to Fabricate Materials at near-lightspeed.</strong></p>\
+              system.write("<p>War is hell. You decide to give peace a chance and shut down the factory. The machines grind to a halt.</p>\
+              <p>You gain the <strong>Ability to Fabricate Materials at near-lightspeed.</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <p>A single door opens in front of you. The whisper that has been in you head all this time\
                     calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
@@ -330,7 +344,8 @@ undum.game.situations = {
                 },
 
             	'evil': function(character, system, action) {
-                    system.write("<p>You gain the <strong>Ability to Fabricate Materials at near-lightspeed.</strong></p>\
+                  system.write("<p>Money does make the world go round. And a little bit of money goes a long way. Plus, it won't hurt to have an arsenal at your disposal. You reprogram the console to give the control of the factory to you.\
+                  <p>You gain the <strong>Ability to Fabricate Materials at near-lightspeed.</strong></p>\
                     <p class='transient'>Two doors appear in front of you. Which one will you choose?</p>\
                     <p>A single door opens in front of you. The whisper that has been in you head all this time\
                     calls out in a normal voice. <blockquote><center><a href='finale'>\"Come in!\"</a></center></blockquote></p>"
@@ -342,7 +357,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.8,to:1.0,showValue=false}
+
                 );
             }
         }
@@ -388,7 +404,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.6,to:0.8,showValue=false}
+
                 );
             }
         }
@@ -457,7 +474,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue=false}
+
                 );
             }
         }
@@ -522,7 +540,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.6,to:0.8,showValue=false}
+
                 );
             }
         }
@@ -562,7 +581,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.8,to:1.0,showValue=false}
+
                 );
             }
         }
@@ -636,7 +656,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue=false}
+
                 );
             }
           }
@@ -684,7 +705,8 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1
+                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue=false}
+
                 );
             }
         }
