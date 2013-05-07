@@ -322,7 +322,7 @@ undum.game.situations = {
             
             actions: {
             'examine-door': function(character, system, action) {
-              system.write("<p>This seems to be a control room. It appears that this is a factory that produces multi-purpose nanomachines, capable of fabricating every object known to man. It appears that someone has been using them to manufacture massive amounts of weaponry in a bid to start an arms race. You see a button that would shut down the factory, and dismantle all the weaponry. But the console to one side would allow you to take control of this operation.</p>
+              system.write("<p>This seems to be a control room. It appears that this is a factory that produces multi-purpose nanomachines, capable of fabricating every object known to man. It appears that someone has been using them to manufacture massive amounts of weaponry in a bid to start an arms race. You see a button that would shut down the factory, and dismantle all the weaponry. But the console to one side would allow you to take control of this operation.</p>\
               <p>You need to make a choice here. Should you <a href='./good'>Dismantle this operation</a> Or <a href='./evil'>Take over this operation</a></p>"
                     );
                 },
