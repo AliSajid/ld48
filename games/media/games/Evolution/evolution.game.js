@@ -173,7 +173,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.0,to:0.2,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.0,to:0.2,showValue:false}
                 );
             }
         }
@@ -244,7 +244,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.2,to:0.4,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.2,to:0.4,showValue:false}
 
                 );
             }
@@ -301,7 +301,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.0,to:0.2,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.0,to:0.2,showValue:false}
 
                 );
             }
@@ -357,7 +357,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.8,to:1.0,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.8,to:1.0,showValue:false}
 
                 );
             }
@@ -404,7 +404,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.6,to:0.8,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.6,to:0.8,showValue:false}
 
                 );
             }
@@ -474,7 +474,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue:false}
 
                 );
             }
@@ -540,7 +540,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.6,to:0.8,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.6,to:0.8,showValue:false}
 
                 );
             }
@@ -581,7 +581,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.8,to:1.0,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.8,to:1.0,showValue:false}
 
                 );
             }
@@ -656,7 +656,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue:false}
 
                 );
             }
@@ -705,7 +705,7 @@ undum.game.situations = {
              
              exit: function(character, system, to) {
                 system.animateQuality(
-                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue=false}
+                    'progress', character.qualities.progress + 1, options={from:0.4,to:0.6,showValue:false}
 
                 );
             }
